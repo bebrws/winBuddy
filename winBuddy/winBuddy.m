@@ -12,8 +12,8 @@
 #import <Carbon/Carbon.h>
 #import <objc/runtime.h>
 
-#define APP_BLACKLIST @[@"com.apple.loginwindow", @"com.apple.notificationcenterui"]
-#define CLS_BLACKLIST @[@"TDesktopWindow", @"NSStatusBarWindow", @"NSCarbonMenuWindow", @"BookmarkBarFolderWindow", @"TShrinkToFitWindow", @"QLFullscreenWindow", @"QLPreviewPanel"]
+#define APP_BLACKLIST @[@"com.apple.loginwindow", @"com.apple.notificationcenterui", @"com.apple.UserNotificationCenter", @"com.rcg.forecastbar.Forecast-Bar-Today-Extension", @"net.doublerew.MonthlyCal.MonthlyCalWidget", @"com.flexibits.fantastical2.mac.today-widget", @"com.todoist.mac.Todoist.TodoistToday", @"it.bloop.airmail2.Airmail-Today", @"com.daftlogicstudio.MiniPlay.MiniPlay-Widget", @"com.dmitrynikolaev.numi.NumiExtension", @"imagetasks.iStatistica.iStatisticaWidget", @"com.aptonic.Dropzone3", @"co.zfoundry.zcloud", @"com.jumpshare.Jumpshare", @"com.mymixapps.FilePane", @"com.pilotmoon.popclip", @"at.EternalStorms.Yoink", @"com.udoncode.copiedmac", @"imagetasks.iStatistica", @"com.surteesstudios.Bartender"]
+#define CLS_BLACKLIST @[@"TDesktopWindow", @"NSStatusBarWindow", @"NSCarbonMenuWindow", @"BookmarkBarFolderWindow", @"TShrinkToFitWindow", @"QLFullscreenWindow", @"QLPreviewPanel", @"TodayViewController", @"NSExtensionPrincipalClass", @"NCWidgetController"]
 
 #define PrefKey(key)  (@"winBuddy_" key)
 #define ReadPref(key) [Defaults objectForKey:PrefKey(key)]
@@ -201,8 +201,8 @@ static void *isActive = &isActive;
     border.boxType = NSBoxCustom;
     border.autoresizingMask = NSViewHeightSizable | NSViewWidthSizable;
     border.borderType = NSLineBorder;
-    border.borderColor = [NSColor blackColor];
-    border.borderWidth = 1;
+    border.borderColor = [NSColor grayColor];
+    border.borderWidth = 2;
     child.contentView = border;
     child.ignoresMouseEvents = YES;
     child.movableByWindowBackground = NO;
