@@ -1,11 +1,16 @@
 # winBuddy
 
-![preview](preview.png) 
+Based on [u/jkotzker's fork](https://github.com/jkotzker/winBuddy) so it has updated list of blacklisted apps.
+This fork has window borders turned off by default as there are too many apps where Window/winBuddy is not visible in menu bar.
+
+Build is updated so you don't have to build it - just download and use it.
+
+![preview](preview.png)
 
 # Information:
 
 - Designed for 10.9+   
-- winBuddy is a SIMBL plugin that removes the shadow around windows in every application window on macOS 
+- winBuddy is a SIMBL plugin that removes the shadow around windows in every application window on macOS
 - Author: [w0lfschild](https://github.com/w0lfschild)
 
 # Note:
