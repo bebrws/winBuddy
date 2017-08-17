@@ -1,6 +1,5 @@
 # winBuddy
 
-Based on [u/jkotzker's fork](https://github.com/jkotzker/winBuddy) so it has updated list of blacklisted apps.
 This fork has window borders turned off by default as there are too many apps where Window/winBuddy is not visible in menu bar.
 
 Build is updated so you don't have to build it - just download and use it.
