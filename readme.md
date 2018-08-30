@@ -21,8 +21,8 @@ This fork has Chrome's tab bar fixed, borders on by default, and uses border col
 1. Clone this repository
 1. Open the Xcode project
 1. Press Command-Shift-R
-1. Run this command in Terminal:
-       cd "~/Library/Developer/Xcode/DerivedData/winbuddy-*/Build/Projects/Debug" && open winBuddy/bundle
+1. Run this command in Terminal:  
+   ```cd "~/Library/Developer/Xcode/DerivedData/winbuddy-*/Build/Projects/Debug" && open winBuddy/bundle```
 1. Restart any application to have winBuddy plugin loaded
 
 ### License:
