@@ -98,7 +98,7 @@
 				TargetAttributes = {
 					FB2506AB1DEBA8EA00973199 = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = EX596BNL45;
+						DevelopmentTeam = J224A9FKGZ;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -108,6 +108,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = FB2506A31DEBA8EA00973199;
@@ -235,8 +236,9 @@
 		FB2506B31DEBA8EA00973199 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Apple Development";
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = EX596BNL45;
+				DEVELOPMENT_TEAM = J224A9FKGZ;
 				INFOPLIST_FILE = winBuddy/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
@@ -250,8 +252,9 @@
 		FB2506B41DEBA8EA00973199 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Apple Development";
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = EX596BNL45;
+				DEVELOPMENT_TEAM = J224A9FKGZ;
 				INFOPLIST_FILE = winBuddy/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;

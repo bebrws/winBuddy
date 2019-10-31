@@ -13,7 +13,10 @@
 #import <objc/runtime.h>
 
 #define APP_BLACKLIST @[@"com.apple.loginwindow", @"com.apple.notificationcenterui", @"com.apple.UserNotificationCenter", @"com.rcg.forecastbar.Forecast-Bar-Today-Extension", @"net.doublerew.MonthlyCal.MonthlyCalWidget", @"com.flexibits.fantastical2.mac.today-widget", @"com.todoist.mac.Todoist.TodoistToday", @"it.bloop.airmail2.Airmail-Today", @"com.daftlogicstudio.MiniPlay.MiniPlay-Widget", @"com.dmitrynikolaev.numi.NumiExtension", @"imagetasks.iStatistica.iStatisticaWidget", @"com.aptonic.Dropzone3", @"co.zfoundry.zcloud", @"com.jumpshare.Jumpshare", @"com.mymixapps.FilePane", @"com.pilotmoon.popclip", @"at.EternalStorms.Yoink", @"com.udoncode.copiedmac", @"imagetasks.iStatistica", @"com.surteesstudios.Bartender", @"com.evernote.EvernoteHelper", @"com.linebreak.CloudAppMacOSX", @"com.pixelmatorteam.pixelmator"]
-#define CLS_BLACKLIST @[@"TDesktopWindow", @"NSStatusBarWindow", @"NSCarbonMenuWindow", @"BookmarkBarFolderWindow", @"TShrinkToFitWindow", @"QLFullscreenWindow", @"QLPreviewPanel", @"TodayViewController", @"NSExtensionPrincipalClass", @"NCWidgetController"]
+
+#define CLS_BLACKLIST @[@"TDesktopWindow", @"NSStatusBarWindow", @"NSCarbonMenuWindow", @"BookmarkBarFolderWindow", @"TShrinkToFitWindow", @"QLFullscreenWindow", @"QLPreviewPanel", @"TodayViewController", @"NSExtensionPrincipalClass", @"NCWidgetController", @"NSSavePanel", @"NSOpenPanel", @"ABInactiveDocumentWindow", @"NSSavePanelServicePanel", @"NSPanelForServiceViewControllerForTouchBarItem", @"NSOpenPanelServicePanel", @"NSPrefWindow"]
+
+
 
 #define PrefKey(key)  (@"winBuddy_" key)
 #define ReadPref(key) [Defaults objectForKey:PrefKey(key)]
@@ -52,6 +55,9 @@ static void *isActive = &isActive;
 
 + (void)load
 {
+
+    
+    
     plugin = [winBuddy sharedInstance];
     NSUInteger osx_ver = [[NSProcessInfo processInfo] operatingSystemVersion].minorVersion;
     
@@ -59,13 +65,16 @@ static void *isActive = &isActive;
     {
         if (![APP_BLACKLIST containsObject:[[NSBundle mainBundle] bundleIdentifier]])
         {
+   
+            
+            
             NSLog(@"Loading winBuddy...");
             
             [Defaults registerDefaults:@{ PrefKey(@"HideMenubar"): @NO }];
             [Defaults registerDefaults:@{ PrefKey(@"HideShadow"): @YES }];
             [Defaults registerDefaults:@{ PrefKey(@"ShowBorder"): @YES }];
 
-            [plugin setMenu];
+            [plugin setMenu]; // setmenu
             [plugin _updateMenubarState];
             
             // Initialize any windows that might already exist
@@ -76,8 +85,32 @@ static void *isActive = &isActive;
                                                      selector:@selector(winBuddy_WindowDidBecomeKey:)
                                                          name:NSWindowDidBecomeKeyNotification
                                                        object:nil];
+
+            if ([NSBundle mainBundle]  != nil) {
+
+                      @try {
+                     NSLog(@"winBuddy ----------------------------------------------- Properties for object NSBundle");
+
+                     @autoreleasepool {
+                         unsigned int numberOfProperties = 0;
+                         objc_property_t *propertyArray = class_copyPropertyList([NSBundle class], &numberOfProperties);
+                         for (NSUInteger i = 0; i < numberOfProperties; i++) {
+                             objc_property_t property = propertyArray[i];
+                             NSString *name = [[NSString alloc] initWithUTF8String:property_getName(property)];
+                             NSLog(@"Property %@ Value: %@", name, [[NSBundle mainBundle] valueForKey:name]);
+                         }
+                         free(propertyArray);
+                     }
+                     NSLog(@"-----------------------------------------------");
+                } @catch( NSException *e ) {}
+            }
             
-            NSLog(@"%@ loaded into %@ on macOS 10.%ld", [self class], [[NSBundle mainBundle] bundleIdentifier], (long)osx_ver);
+            NSLog(@"winBuddy %@ loaded into %@ on macOS 10.%ld", [self class], [[NSBundle mainBundle] bundleIdentifier], (long)osx_ver);
+            
+ 
+            
+            
+            
         }
         else
         {
@@ -95,15 +128,75 @@ static void *isActive = &isActive;
 }
 
 - (void)winBuddy_initialize:(NSWindow*)theWindow {
-//    NSLog(@"wb_ %@", [theWindow className]);
+    for(NSWindow *window in [theWindow childWindows]) {
+        NSLog(@"winBuddy wb_ childWindow  %@", [theWindow className]);
+        if (theWindow.toolbar != nil) {
+            NSLog(@"winBuddy wb_ %@ has a child window toolbar", [theWindow className]);
+            
+            @try {
+
+            NSLog(@"winBuddy ----------------------------------------------- Properties for child object NSToolbar");
+
+            @autoreleasepool {
+                unsigned int numberOfProperties = 0;
+                objc_property_t *propertyArray = class_copyPropertyList([NSToolbar class], &numberOfProperties);
+                for (NSUInteger i = 0; i < numberOfProperties; i++) {
+                    objc_property_t property = propertyArray[i];
+                    NSString *name = [[NSString alloc] initWithUTF8String:property_getName(property)];
+                    NSLog(@"Property %@ Value: %@", name, [[theWindow className] valueForKey:name]);
+                }
+                free(propertyArray);
+            }
+            NSLog(@"-----------------------------------------------");
+            } @catch( NSException *e ) {}
+        }
+    }
+        
+    
+    
+    NSLog(@"winBuddy wb_ className %@", [theWindow className]);
+    if (theWindow.toolbar != nil) {
+        NSLog(@"winBuddy wb_ main window %@ has a toolbar", [theWindow className]);
+        
+        @try {
+        NSLog(@"winBuddy ----------------------------------------------- Properties for object main NSToolbar");
+
+        @autoreleasepool {
+            unsigned int numberOfProperties = 0;
+            objc_property_t *propertyArray = class_copyPropertyList([NSToolbar class], &numberOfProperties);
+            for (NSUInteger i = 0; i < numberOfProperties; i++) {
+                objc_property_t property = propertyArray[i];
+                NSString *name = [[NSString alloc] initWithUTF8String:property_getName(property)];
+                NSLog(@"Property %@ Value: %@", name, [[theWindow className] valueForKey:name]);
+            }
+            free(propertyArray);
+        }
+        NSLog(@"-----------------------------------------------");
+        } @catch( NSException *e ) {}
+    }
+
+
+    
     if (![CLS_BLACKLIST containsObject:[theWindow className]])
     {
         if (![objc_getAssociatedObject(theWindow, isActive) boolValue])
         {
+            
+            SystemUIMode current_mode;
+            GetSystemUIMode(&current_mode, NULL);
+            
+            if (current_mode == kUIModeNormal) {
+                NSLog(@"winBuddy not in normal mode", [theWindow className]);
+            }
+            
+            NSLog(@"winBuddy isActive", [theWindow className]);
             if (ReadPref(@"HideShadow") != nil)
                 theWindow.hasShadow = ![ReadPref(@"HideShadow") boolValue];
             [plugin _updateMenubarState];
+            
+            NSLog(@"winBuddy wb_ Setting border on  %@", [theWindow className]);
             [theWindow mf_setupBorder];
+            
             objc_setAssociatedObject(theWindow, isActive, [NSNumber numberWithBool:true], OBJC_ASSOCIATION_RETAIN);
         }
     }
