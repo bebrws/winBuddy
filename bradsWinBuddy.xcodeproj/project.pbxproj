@@ -13,7 +13,7 @@
 
 /* Begin PBXFileReference section */
 		FB24F25A1DFCC3E10059A76A /* readme.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = readme.md; sourceTree = "<group>"; };
-		FB2506AC1DEBA8EA00973199 /* winBuddy.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = winBuddy.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB2506AC1DEBA8EA00973199 /* bradsWinBuddy.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = bradsWinBuddy.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB2506AF1DEBA8EA00973199 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FB2506B71DEBA90C00973199 /* FConvenience.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FConvenience.h; sourceTree = "<group>"; };
 		FB2506B81DEBA90C00973199 /* FConvenience.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FConvenience.m; sourceTree = "<group>"; };
@@ -35,7 +35,7 @@
 			isa = PBXGroup;
 			children = (
 				FB24F25A1DFCC3E10059A76A /* readme.md */,
-				FB2506AE1DEBA8EA00973199 /* winBuddy */,
+				FB2506AE1DEBA8EA00973199 /* bradsWinBuddy */,
 				FB2506AD1DEBA8EA00973199 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -43,19 +43,19 @@
 		FB2506AD1DEBA8EA00973199 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				FB2506AC1DEBA8EA00973199 /* winBuddy.bundle */,
+				FB2506AC1DEBA8EA00973199 /* bradsWinBuddy.bundle */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		FB2506AE1DEBA8EA00973199 /* winBuddy */ = {
+		FB2506AE1DEBA8EA00973199 /* bradsWinBuddy */ = {
 			isa = PBXGroup;
 			children = (
 				FB2506C11DEBA9F600973199 /* FConvenience */,
 				FB2506BE1DEBA9E700973199 /* winBuddy.m */,
 				FB2506AF1DEBA8EA00973199 /* Info.plist */,
 			);
-			path = winBuddy;
+			path = bradsWinBuddy;
 			sourceTree = "<group>";
 		};
 		FB2506C11DEBA9F600973199 /* FConvenience */ = {
@@ -70,9 +70,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		FB2506AB1DEBA8EA00973199 /* winBuddy */ = {
+		FB2506AB1DEBA8EA00973199 /* bradsWinBuddy */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FB2506B21DEBA8EA00973199 /* Build configuration list for PBXNativeTarget "winBuddy" */;
+			buildConfigurationList = FB2506B21DEBA8EA00973199 /* Build configuration list for PBXNativeTarget "bradsWinBuddy" */;
 			buildPhases = (
 				FB2506A81DEBA8EA00973199 /* Sources */,
 				FB2506A91DEBA8EA00973199 /* Frameworks */,
@@ -82,9 +82,9 @@
 			);
 			dependencies = (
 			);
-			name = winBuddy;
+			name = bradsWinBuddy;
 			productName = winBuddy;
-			productReference = FB2506AC1DEBA8EA00973199 /* winBuddy.bundle */;
+			productReference = FB2506AC1DEBA8EA00973199 /* bradsWinBuddy.bundle */;
 			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
@@ -103,7 +103,7 @@
 					};
 				};
 			};
-			buildConfigurationList = FB2506A71DEBA8EA00973199 /* Build configuration list for PBXProject "winBuddy" */;
+			buildConfigurationList = FB2506A71DEBA8EA00973199 /* Build configuration list for PBXProject "bradsWinBuddy" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -116,7 +116,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				FB2506AB1DEBA8EA00973199 /* winBuddy */,
+				FB2506AB1DEBA8EA00973199 /* bradsWinBuddy */,
 			);
 		};
 /* End PBXProject section */
@@ -185,7 +185,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
@@ -227,7 +227,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
 			};
@@ -238,13 +238,16 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "Apple Development";
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = J224A9FKGZ;
-				INFOPLIST_FILE = winBuddy/Info.plist;
+				INFOPLIST_FILE = bradsWinBuddy/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
-				PRODUCT_BUNDLE_IDENTIFIER = org.w0lf.winBuddy;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MARKETING_VERSION = 0.3;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bbarrows.bradsWinBuddy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				STRIP_INSTALLED_PRODUCT = NO;
 				WRAPPER_EXTENSION = bundle;
 			};
 			name = Debug;
@@ -254,13 +257,16 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "Apple Development";
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = J224A9FKGZ;
-				INFOPLIST_FILE = winBuddy/Info.plist;
+				INFOPLIST_FILE = bradsWinBuddy/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
-				PRODUCT_BUNDLE_IDENTIFIER = org.w0lf.winBuddy;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MARKETING_VERSION = 0.3;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bbarrows.bradsWinBuddy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				STRIP_INSTALLED_PRODUCT = NO;
 				WRAPPER_EXTENSION = bundle;
 			};
 			name = Release;
@@ -268,7 +274,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		FB2506A71DEBA8EA00973199 /* Build configuration list for PBXProject "winBuddy" */ = {
+		FB2506A71DEBA8EA00973199 /* Build configuration list for PBXProject "bradsWinBuddy" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FB2506B01DEBA8EA00973199 /* Debug */,
@@ -277,7 +283,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FB2506B21DEBA8EA00973199 /* Build configuration list for PBXNativeTarget "winBuddy" */ = {
+		FB2506B21DEBA8EA00973199 /* Build configuration list for PBXNativeTarget "bradsWinBuddy" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FB2506B31DEBA8EA00973199 /* Debug */,
